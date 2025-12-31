@@ -1,14 +1,11 @@
 :root {
-    /* --surface: #11161c;
-    --border: #233142;
-    --text: #e7eef7;
-    --muted: #9bb0c6; usar para el  modo oscuro */
     --ok: #15c46f;
-    --bad: #e75d5d;
+    --bad: #f07070;
     --focus: #5ab0ff;
 
     --pergamino:#fdf6e3;
     --tesoro:#d4af37;
+    --azul-noche:#000129;
     --azul-boton: #007BFF;
     --azul-boton-hover: #0056b3;
     --blanco:#ffffff;
@@ -29,7 +26,7 @@ body {
     line-height: 1.6;
 }
 
-/* 🏴‍☠️ Menú pirata */
+/* Menú pirata */
 .menu {
     position: fixed;
     top: 0;
@@ -117,7 +114,7 @@ h1, h2, p {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-/* 🎛️ Formularios */
+/* Formularios */
 label {
     display: block;
     margin-bottom: 0.5rem;
@@ -129,9 +126,10 @@ input[type="text"] {
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--border);
-    background: #0f141a;
+    background:var(--tesoro);
     color: var(--blanco);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--sangre);
 }
 
 input[type="color"] {
@@ -143,6 +141,8 @@ input[type="color"] {
 input[type="text"] {
     padding: 10px 12px;
     margin-top: 0.5rem;
+    color: var(--azul-noche);
+    font-weight: bold;
 }
 
 input:focus {
@@ -151,10 +151,12 @@ input:focus {
     box-shadow: 0 0 0 2px var(--azul-boton-hover);
 }
 
-/* 📊 Contraste y estados */
+/* Contraste y estados */
 .ratio {
   font-size: 2rem;
   font-weight: 700;
+  margin: 10px;
+  text-align: center;
 }
 
 .badges {
@@ -170,8 +172,7 @@ input:focus {
   align-items: center;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid var(--sangre);
-  background: #0f141a;
+  background: var(--azul-noche);
 }
 
 .status {
@@ -213,12 +214,16 @@ input:focus {
 
 .swatch {
   flex: 1 1 160px;
-  background: #0f141a;
-  border: 1px solid var(--border);
+  background:var(--tesoro);
+  border: 2px solid var(--madera);
   border-radius: 12px;
   padding: 0.75rem;
 }
-
+.swatch span{
+  color: var(--azul-noche);
+  text-align: center;
+  font-weight: bold;
+}
 .swatch-color {
   height: 60px;
   border-radius: 8px;
@@ -232,10 +237,11 @@ input:focus {
   font-size: 0.85rem;
 }
 
-/* 🔘 Botones y utilidades */
+/* Botones y utilidades */
 .small {
-  color: var(--blanco);
+  color: var(--azul-noche);
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .row {
@@ -249,14 +255,14 @@ button {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  background: #0f141a;
+  background: var(--azul-boton);
   color: var(--text);
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: var(--border);
+  background: var(--azul-boton-hover);
   transform: translateY(-2px);
 }
 
