@@ -104,8 +104,9 @@ footer {
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
-h1, h2, p {
-    margin: 0 2rem 0.5rem;
+h1, h2, p{
+  margin: 0 auto 0.5rem; /* auto en los lados centra el bloque */
+  width: fit-content;    /* el ancho se ajusta al contenido */
 }
 
 .grid {
@@ -156,21 +157,23 @@ input:focus {
   font-size: 2rem;
   font-weight: 700;
   margin: 10px;
-  text-align: center;
+  text-align: center;      /* centra el texto dentro del div */
 }
 
 .badges {
   display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:10px;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  grid-template-rows: repeat(2, auto);   /* 2 filas */
   margin-top: 0.75rem;
+  padding: 10px;
 }
 
 .badge {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
+  padding: 10px;
   border-radius: 10px;
   background: var(--azul-noche);
 }
@@ -246,30 +249,10 @@ input:focus {
 
 .row {
   display: flex;
-  align-items: center;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
   gap: 0.5rem;
   margin-top: 0.5rem;
-}
-
-button {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--azul-boton);
-  color: var(--text);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background: var(--azul-boton-hover);
-  transform: translateY(-2px);
-}
-
-button:focus {
-  outline: none;
-  border-color: var(--focus);
-  box-shadow: 0 0 0 2px var(--focus);
 }
 
 @media (max-width: 750px) {

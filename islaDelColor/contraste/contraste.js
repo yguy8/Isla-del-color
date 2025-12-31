@@ -63,8 +63,6 @@ toggle.addEventListener('click', () => {
     const swatchFgHex = document.getElementById("swatchFgHex");
     const swatchBgHex = document.getElementById("swatchBgHex");
     const preview = document.getElementById("preview");
-    const copyBtn = document.getElementById("copyBtn");
-    const copyMsg = document.getElementById("copyMsg");
 
     function update() {
       const fgHex = fgColor.value;
@@ -81,7 +79,7 @@ toggle.addEventListener('click', () => {
       preview.style.background = bgHex;
 
       const ratio = contrastRatio(fgHex, bgHex);
-      ratioEl.textContent = Number.isFinite(ratio) ? ratio.toFixed(2) + " de 1" : "—";
+      ratioEl.textContent = Number.isFinite(ratio) ? ratio.toFixed(2) + " de 27" : "—";
 
       setStatus(aaNormalEl, ratio >= 4.5);
       setStatus(aaaNormalEl, ratio >= 7);
@@ -89,14 +87,33 @@ toggle.addEventListener('click', () => {
       setStatus(aaaLargeEl, ratio >= 4.5);
     }
 
-    function setStatus(el, pass) {
-      el.classList.remove("ok", "bad");
-      if (!Number.isFinite(parseFloat(ratioEl.textContent))) {
-        el.textContent = "—"; el.classList.add("bad"); return;
-      }
-      el.textContent = pass ? "Cumple" : "No cumple";
-      el.classList.add(pass ? "ok" : "bad");
-    }
+   function setStatus(el, pass) {
+  el.classList.remove("ok", "bad");
+
+  if (!Number.isFinite(parseFloat(ratioEl.textContent))) {
+    el.textContent = "—";
+    el.classList.add("bad");
+    return;
+  }
+
+  if (pass) {
+    // Icono verde de check
+    el.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+           viewBox="0 0 24 24" fill="#15c46f"
+           class="icon icon-tabler icons-tabler-filled icon-tabler-square-check">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M18.333 2c1.96 0 3.56 1.537 3.662 3.472l.005 .195v12.666c0 1.96 -1.537 3.56 -3.472 3.662l-.195 .005h-12.666a3.667 3.667 0 0 1 -3.662 -3.472l-.005 -.195v-12.666c0 -1.96 1.537 -3.56 3.472 -3.662l.195 -.005h12.666zm-2.626 7.293a1 1 0 0 0 -1.414 0l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" />
+      </svg>`;
+  } else {
+    // Icono rojo de X
+    el.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="#f07070" class="icon icon-tabler icons-tabler-filled icon-tabler-xbox-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10m3.6 5.2a1 1 0 0 0 -1.4 .2l-2.2 2.933l-2.2 -2.933a1 1 0 1 0 -1.6 1.2l2.55 3.4l-2.55 3.4a1 1 0 1 0 1.6 1.2l2.2 -2.933l2.2 2.933a1 1 0 0 0 1.6 -1.2l-2.55 -3.4l2.55 -3.4a1 1 0 0 0 -.2 -1.4" /></svg>`;
+  }
+
+  el.classList.add(pass ? "ok" : "bad");
+}
+
 
     function updateFromTextInputs() {
       const f = normalizeHex(fgHexInput.value);
@@ -111,15 +128,5 @@ toggle.addEventListener('click', () => {
     fgHexInput.addEventListener("change", updateFromTextInputs);
     bgHexInput.addEventListener("change", updateFromTextInputs);
 
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(ratioEl.textContent);
-        copyMsg.textContent = "Copiado";
-        setTimeout(() => (copyMsg.textContent = ""), 1200);
-      } catch {
-        copyMsg.textContent = "No se pudo copiar";
-        setTimeout(() => (copyMsg.textContent = ""), 1200);
-      }
-    });
 
     update();
