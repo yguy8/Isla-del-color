@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extractor de color</title>
+  <link rel="stylesheet" href="extractor.css" />
+  <link rel="icon" href="https://gd7distribuidor.com.br/wp-content/uploads/2020/01/gd7_cores_destaque.jpg" type="image/x-icon">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Extractor de color</h1>
+      <p>Sube una imagen y haz clic sobre el lienzo para capturar el color.</p>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Imagen</h2>
+        <div class="drop" id="drop">
+          <button id="pickBtn">Seleccionar imagen</button>
+          <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.svg,image/*" />
+          <span class="tip">Arrastra una imagen desde tu disco.</span>
+        </div>
+
+        <!-- Eliminado el campo para vínculos -->
+
+        <div class="stage-wrap">
+          <canvas id="stage"></canvas>
+          <div class="empty" id="emptyMsg">No hay imagen cargada. Sube una para comenzar.</div>
+        </div>
+
+        <div class="tools">
+          <button class="btn" id="fitBtn" disabled>Ajustar al ancho</button>
+          <button class="btn" id="resetBtn" disabled>Restablecer</button>
+          <button class="btn primary" id="paletteBtn" disabled>Generar paleta</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Color seleccionado</h2>
+        <div class="output">
+          <div class="swatch" id="swatch"></div>
+          <div class="codes">
+            <div class="code-line"><span class="badge">HEX</span><span id="hex">—</span></div>
+            <div class="code-line"><span class="badge">RGB</span><span id="rgb">—</span></div>
+          </div>
+          <div class="copy">
+            <button class="btn" id="copyHex" disabled>Copiar HEX</button>
+            <button class="btn" id="copyRgb" disabled>Copiar RGB</button>
+          </div>
+        </div>
+
+        <h2 style="margin-top:14px;">Paleta dominante</h2>
+        <div class="palette" id="palette"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copiado al portapapeles</div>
+
+  <script src="extractor.js"></script>
+</body>
+</html>
