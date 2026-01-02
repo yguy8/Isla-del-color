@@ -177,7 +177,6 @@ stage.addEventListener("click", e => {
   // Mostrar último color en panel
   swatch.style.backgroundColor = `rgb(${r},${g},${b})`;
   hexEl.textContent = hex;
-  rgbEl.textContent = `rgb(${r},${g},${b})`;
 
   renderSelectedColors();
 });
@@ -233,7 +232,7 @@ function renderSelectedColors() {
 
     const meta = document.createElement("div");
     meta.className = "meta";
-    meta.innerHTML = `<span>${c.hex}</span> <span>rgb(${c.r},${c.g},${c.b})</span>`;
+    meta.innerHTML = `<span>${c.hex}</span> `;
 
     // Botón copiar color (azul)
     const copyBtn = document.createElement("button");
@@ -294,7 +293,7 @@ paletteBtn.addEventListener("click", () => {
       <div class="color" style="background:rgb(${c.r},${c.g},${c.b})"></div>
       <div class="meta">
         <span>${c.hex}</span>
-        <span>rgb(${c.r},${c.g},${c.b})</span>
+        
       </div>`;
     paletteContainer.appendChild(chip);
   });
