@@ -247,7 +247,7 @@ function renderSelectedColors() {
       </svg>
     `;
     copyBtn.onclick = () => {
-      const text = `${c.hex} rgb(${c.r},${c.g},${c.b})`;
+      const text = `${c.hex}`;
       navigator.clipboard.writeText(text)
         .then(() => showToast("Color copiado"))
         .catch(() => showToast("No se pudo copiar el color"));
@@ -305,7 +305,7 @@ copyPaletteBtn.addEventListener("click", () => {
     showToast("No hay colores en la paleta");
     return;
   }
-  const text = selectedPoints.map(c => `${c.hex} rgb(${c.r},${c.g},${c.b})`).join("\n");
+  const text = selectedPoints.map(c => `${c.hex}`).join("\n");
   navigator.clipboard.writeText(text)
     .then(() => showToast("Paleta copiada"))
     .catch(() => showToast("No se pudo copiar la paleta"));
