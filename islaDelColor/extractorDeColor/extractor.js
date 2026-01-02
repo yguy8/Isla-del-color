@@ -130,11 +130,24 @@ stage.addEventListener("mousemove", e => {
     0, 0, zoomCanvas.width, zoomCanvas.height
   );
 
-  // posicionar el zoomCanvas cerca del cursor
+  // mostrar y posicionar el zoomCanvas cerca del cursor
+  zoomCanvas.style.display = "block";
   zoomCanvas.style.position = "absolute";
   zoomCanvas.style.left = `${e.pageX + 20}px`;
   zoomCanvas.style.top = `${e.pageY + 20}px`;
 });
+
+// cuando el cursor entra al canvas
+stage.addEventListener("mouseenter", () => {
+  zoomCanvas.style.display = "block";
+});
+
+// cuando el cursor sale del canvas
+stage.addEventListener("mouseleave", () => {
+  zoomCanvas.style.display = "none";
+  zoomCtx.clearRect(0, 0, zoomCanvas.width, zoomCanvas.height); // opcional: limpiar
+});
+
 
 // --- Selección de color en canvas ---
 stage.addEventListener("click", e => {
@@ -304,3 +317,4 @@ copyPaletteBtn.addEventListener("click", () => {
   paletteBtn.disabled = true;
   copyPaletteBtn.disabled = true;
 })();
+
