@@ -68,6 +68,17 @@ body {
     color: var(--azul-boton-hover);
     border-bottom: 2px solid var(--tesoro);
 }
+
+#modoOscuroBtn {
+    background: none;       
+    border: none;           
+    padding: 0;             
+    margin: 0;              
+    display: inline-flex;   
+    align-items: center;    
+    cursor: pointer;
+}
+
 /* Contenedor estilo pergamino */
 .container {
     text-align: center;
