@@ -66,7 +66,7 @@ p{
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
 }
-/* Layout principal */
+/* distribucción principal */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -206,9 +206,13 @@ button:disabled {
 }
 
 /* Media queries */
-@media (max-width: 900px) {
+
+/* Ajuste de grid en pantallas medianas */
+@media (max-width: 1000px) {
   .grid { grid-template-columns: 1fr; }
 }
+
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 670px) {
   .menu-toggle {
     display: block;
@@ -238,5 +242,30 @@ button:disabled {
     margin: 40px auto;
     max-width: 600px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Tipografía adaptable */
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+
+  /* Espaciados y márgenes */
+  .panel { padding: 10px; }
+  .grid { gap: 10px; }
+
+  /* Botones más grandes y cómodos */
+  button { padding: 12px 20px; font-size: 1rem; }
+
+  /* Canvas responsivo */
+  #stage { width: 100%; height: auto; }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1000px) {
+  .palette { 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+  }
+  .chip { 
+    width: calc(33% - 10px); 
   }
 }

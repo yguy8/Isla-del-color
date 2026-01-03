@@ -80,8 +80,9 @@ header, footer {
 footer {
     border-top: 1px solid var(--border);
     border-bottom: none;
-    color: var(--muted);
+    color: var(--negro);
     text-align: center;
+    margin: 15px;
 }
 
 .container {
@@ -91,7 +92,7 @@ footer {
 }
 
 .card {
-    background: var(--tesoro);
+    background: var(--madera);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1rem;
@@ -127,7 +128,6 @@ input[type="text"] {
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--border);
-    background:var(--tesoro);
     color: var(--blanco);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid var(--sangre);
@@ -207,7 +207,7 @@ input:focus {
   font-weight: 600;
 }
 
-/* Swatches/ muestra de como se veria el color de fondo y el del texto*/
+/* Swatches--- muestra de como se veria el color de fondo y el del texto*/
 .swatches {
   display: flex;
   gap: 1rem;
@@ -217,13 +217,12 @@ input:focus {
 
 .swatch {
   flex: 1 1 160px;
-  background:var(--tesoro);
   border: 2px solid var(--madera);
   border-radius: 12px;
   padding: 0.75rem;
 }
 .swatch span{
-  color: var(--azul-noche);
+  color: var(--blanco);
   text-align: center;
   font-weight: bold;
 }

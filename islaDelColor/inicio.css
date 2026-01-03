@@ -8,12 +8,13 @@
 /* Variables globales */
 :root{
     --color-blanco:#ffffff;
-    --color-negro:#333;
+    --color-letras:#333;
     --azul: #007BFF;
     --azul-hover: #0056b3;
-    --pergamino:#fdf6e3;
+    --color-de-fondo:#fdf6e3;
+    --color-de-fondo-2:rgba(253, 246, 227, 0.8);
     --tesoro:#d4af37;
-    --tesoro-hover:#b8860b;
+    --hover-fondo:#b8860b;
     --sangre:#8b0000;
     --madera:#984c4c;
     --rojo:red;
@@ -22,16 +23,25 @@
 /* Fondo y tipografía */
 body {
     font-family: 'Cinzel Decorative', serif;
-    background-color: var(--pergamino);
-    color: var(--color-negro);
+    background-color: var(--color-de-fondo);
+    color: var(--color-letras);
     transition: background-color 0.5s ease;
+}
+
+#modoOscuroBtn{
+    background-color: var(--color-de-fondo);
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 /*Menú superior*/
 .menu {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     padding: 10px 0;
     z-index: 1000;
     box-shadow: 2px 2px 0px #000;
@@ -55,7 +65,7 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: var(--color-negro);
+    color: var(--color-letras);
     font-weight: 600;
     transition: color 0.3s ease, border-bottom 0.3s ease;
 }
@@ -74,7 +84,7 @@ body {
 
 .hero h1 {
     font-size: 3rem;
-    color: var(--color-negro);
+    color: var(--color-letras);
     text-shadow: 2px 2px var(--tesoro);
     margin-bottom: 20px;
 }
@@ -100,7 +110,7 @@ body {
 }
 
 .btn:hover {
-    background-color:var(--tesoro-hover);
+    background-color:var(--hover-fondo);
     transform: scale(1.05);
 }
 
@@ -113,7 +123,7 @@ section {
 section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--color-negro);
+    color: var(--color-letras);
     text-shadow: 1px 1px var(--tesoro);
     font-weight: bold;
 }
@@ -128,7 +138,7 @@ section p {
 
 /* Estilo para el Mapa EXPLORAR  */
 .menu-mapa {
-    background-color: rgba(253, 246, 227, 0.8); /* pergamino translúcido */
+    background-color: var(--color-de-fondo-2); /* pergamino translúcido */
     border: 2px solid var(--tesoro);
     border-radius: 12px;
     padding: 40px 20px;
@@ -146,7 +156,7 @@ section p {
 
 .menu-mapa h2 {
     font-size: 2rem;
-    color: var(--color-negro);
+    color: var(--color-letras);
     text-shadow: 2px 2px var(--tesoro);
     margin-bottom: 25px;
 }
@@ -174,7 +184,7 @@ section p {
 }
 
 .menu-mapa a:hover {
-    background-color: var(--tesoro-hover);
+    background-color: var(--hover-fondo);
     transform: translateY(-3px);
 }
 
@@ -216,7 +226,7 @@ section p {
 
 /* Contenedor del contenido */
 .modal-contenido {
-    background: var(--pergamino);
+    background: var(--color-de-fondo);
     margin: 10% auto;
     padding: 40px;
     border-radius: 8px;
@@ -250,7 +260,7 @@ section p {
 .modal-contenido p {
     margin-bottom: 1em;   /* espacio entre párrafos */
     line-height: 1.5;     /* mejor legibilidad */
-    color: var(--color-negro);
+    color: var(--color-letras);
     font-size: 16px;
 }
 
@@ -262,7 +272,7 @@ section p {
 .modal-contenido li {
     margin-bottom: 0.8em;
     line-height: 1.5;
-    color: var(--color-negro);
+    color: var(--color-letras);
     font-size: 16px;
 }
 
@@ -326,7 +336,7 @@ img{
 
 /* Contenido del modal */
 .modal-content {
-    background:var(--pergamino);
+    background:var(--color-de-fondo);
     margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
@@ -375,7 +385,7 @@ img{
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn-info:hover {
-    background-color: var(--tesoro-hover);
+    background-color: var(--hover-fondo);
     transform: scale(1.05);
 }
 
@@ -384,7 +394,7 @@ img{
     margin-top: 20px;
     padding: 15px;
     border: 2px solid var(--tesoro);
-    background: var(--pergamino);
+    background: var(--color-de-fondo);
     border-radius: 10px;
     max-width: 800px;
     margin-left: auto;
@@ -430,7 +440,7 @@ img{
     transition: background 0.3s ease;
 }
 .btn-info:hover {
-    background: var(--tesoro-hover);
+    background: var(--hover-fondo);
 }
 
 /* Contenedor de las paletas */
@@ -472,7 +482,7 @@ img{
 footer {
     text-align: center;
     padding: 20px;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     border-top: 2px dashed var(--tesoro);
     font-size: 0.9rem;
     font-family: 'Poppins', sans-serif;
@@ -494,12 +504,12 @@ footer {
 footer h2 {
     margin: 0;
     font-size: 1.4rem;
-    color: var(--tesoro);
+    color: var(--color-letras);
 }
 
 footer p {
     margin: 5px 0 10px;
-    color: var(--texto-suave, #555);
+    color: var(--color-letras, #555);
     font-weight: bold;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -517,7 +527,7 @@ footer p {
 
 .github-icon:hover {
     transform: scale(1.2) rotate(8deg);
-    filter: drop-shadow(0 0 16px var(--tesoro));
+    filter: drop-shadow(0 0 26px var(--tesoro));
 }
 
 .footer-image {
@@ -540,6 +550,16 @@ footer p {
     display: block;
 }
 
+/* modo oscuro */
+body.oscuro {
+    /*modo oscuro*/
+    --color-de-fondo:#23043A; 
+    --color-letras:#dcfbc5; 
+    --tesoro:#5d8ece; 
+    --hover-fondo:#043a23; 
+    --color-de-fondo-2:#3a0437; 
+    /* --color-a-usar-pendiente:#f7b8b0; */
+}
 /*Media queries para responsividad*/
 /* --- MÓVIL --- */
 @media (max-width: 768px) {
@@ -552,7 +572,7 @@ footer p {
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: var(--pergamino);
+        background-color: var(--color-de-fondo);
         position: absolute;
         top: 50px;
         left: 0;
@@ -571,7 +591,7 @@ footer p {
 .menu-mapa {
     border: none;
     box-shadow: none;
-    background-color: rgba(253, 246, 227, 0.8); /* pergamino translúcido */
+    background-color: var(--color-de-fondo-2); /* pergamino translúcido */
     border-radius: 12px;
     padding: 40px 20px;
     margin: 40px auto;
@@ -581,7 +601,7 @@ footer p {
 
 .hero h1 {
     font-size: 2rem;
-    color: var(--color-negro);
+    color: var(--color-letras);
     text-shadow: 2px 2px var(--tesoro);
     margin-bottom: 20px;
 }
