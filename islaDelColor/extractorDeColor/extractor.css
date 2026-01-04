@@ -1,14 +1,12 @@
 :root {
-    --pergamino:#fdf6e3;
+    --color-de-fondo:#fdf6e3;
     --tesoro:#d4af37;
     --blanco:#ffffff;
-    --negro:#222;
+    --color-letras:#222;
+    --color-letras-2:#fff;
     --azul-boton: #007BFF;
     --azul-boton-hover: #0056b3;
-    --sangre:#8b0000;
     --madera:#84511c;
-
-    /* modo oscuro: podrías definir aquí variantes */
 }
 
 /* Reset básico */
@@ -16,17 +14,29 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: var(--pergamino);
-  color: var(--negro);
+  background: var(--color-de-fondo);
+  color: var(--color-letras);
   line-height: 1.6;
 }
-
+/* modo oscuro */
+body.oscuro {
+    /*modo oscuro*/
+    --color-de-fondo:#23043A; 
+    --color-de-fondo-2:#3a0437; 
+    --color-letras:#dcfbc5; 
+    --tesoro:#5d8ece; 
+    --hover-fondo:#054a2c; 
+    --madera:#087077;
+    --blanco:#484747;
+    --azul-boton:#60065c;
+    --azul-boton-hover:#087077;
+}
 /* Menú superior */
 .menu {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     padding: 10px 0;
     z-index: 1000;
     box-shadow: 2px 2px 0px var(--negro);
@@ -44,7 +54,7 @@ body {
 .menu li { margin: 0 20px; }
 .menu a {
     text-decoration: none;
-    color: var(--negro);
+    color: var(--color-letras);
     font-weight: 600;
     transition: color 0.3s ease, border-bottom 0.3s ease;
 }
@@ -104,7 +114,7 @@ p{
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--sangre);
+  color: var(--negro);
   font-weight: bold;
 }
 
@@ -124,11 +134,12 @@ p{
   gap: 8px;
 }
 button {
+  font-weight: bold;
   padding: 8px 16px;
   border: none;
   border-radius: 6px;
   background: var(--azul-boton);
-  color: var(--blanco);
+  color: var(--color-letras-2);
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -157,7 +168,7 @@ button:disabled {
 .code-line { margin: 4px 0; }
 .badge {
   background: var(--tesoro);
-  color: var(--negro);
+  color: var(--color-letras);
   padding: 2px 6px;
   border-radius: 4px;
   margin-right: 6px;
@@ -176,7 +187,7 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--pergamino);
+  background: var(--color-de-fondo);
   padding: 6px;
   border-radius: 6px;
   border: 1px solid var(--madera);
@@ -203,7 +214,7 @@ button:disabled {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--negro);
+  background: var(--color-letras);
   color: var(--blanco);
   padding: 8px 16px;
   border-radius: 6px;
@@ -231,7 +242,7 @@ button:disabled {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     position: absolute;
     top: 50px;
     left: 0;

@@ -3,13 +3,14 @@
     --bad: #f07070;
     --focus: #5ab0ff;
 
-    --pergamino:#fdf6e3;
+    --color-de-fondo:#fdf6e3;
+    --color-de-fondo-2:rgba(253, 246, 227, 0.8);
     --tesoro:#d4af37;
     --azul-noche:#000129;
     --azul-boton: #007BFF;
     --azul-boton-hover: #0056b3;
     --blanco:#ffffff;
-    --negro:#222;
+    --color-letras:#222;
     --sangre:#8b0000;
     --madera:#984c4c;
 }
@@ -22,8 +23,20 @@ body {
     margin: 0;
     font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
     color: var(--blanco);
-    background:var(--pergamino) ;
+    background:var(--color-de-fondo) ;
     line-height: 1.6;
+}
+
+/* modo oscuro */
+body.oscuro {
+    /*modo oscuro*/
+    --color-de-fondo:#23043A; 
+    --color-de-fondo-2:#3a0437; 
+    --color-letras:#dcfbc5; 
+    --tesoro:#5d8ece; 
+    --hover-fondo:#054a2c; 
+    --madera:#087077;
+    --sangre:#60065c; 
 }
 
 /* Menú pirata */
@@ -31,12 +44,12 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     padding: 0.75rem 0;
     z-index: 1000;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-    color: var(--negro);
+    color: var(--color-letras);
 }
 
 .menu-toggle {
@@ -82,13 +95,13 @@ body {
 header, footer {
     padding: 4rem 0 0 0 ;
     border-bottom: 1px solid var(--border);
-    color: var(--negro);
+    color: var(--color-letras);
 }
 
 footer {
     border-top: 1px solid var(--border);
     border-bottom: none;
-    color: var(--negro);
+    color: var(--color-letras);
     text-align: center;
     margin: 15px;
 }
@@ -272,7 +285,7 @@ input:focus {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     position: absolute;
     top: 50px;
     left: 0;
@@ -291,7 +304,7 @@ input:focus {
 .menu-mapa {
     border: none;
     box-shadow: none;
-    background-color: rgba(253, 246, 227, 0.8); /* pergamino translúcido */
+    background-color: var(--color-de-fondo-2); /* pergamino translúcido */
     border-radius: 12px;
     padding: 40px 20px;
     margin: 40px auto;

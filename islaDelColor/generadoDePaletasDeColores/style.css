@@ -7,12 +7,15 @@
 
 /* Variables globales */
 :root{
-    --pergamino:#fdf6e3;
+    --color-de-fondo:#fdf6e3;
+    --color-de-fondo-2:rgba(253, 246, 227, 0.8);
     --tesoro:#d4af37;
     --blanco:#ffffff;
-    --negro:#222;
+    --color-letras:#222;
     --azul-boton: #007BFF;
     --azul-boton-hover: #0056b3;
+    --color-icono:#1e00ff;
+    --color-icono-hover:#a80707;
     --sangre:#8b0000;
     --madera:#984c4c;
 }
@@ -24,9 +27,25 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: var(--blanco);
-    color: var(--negro);
+    background-color: var(--color-de-fondo-2);
+    color: var(--color-letras);
     transition: background-color 0.5s ease;
+}
+
+/* modo oscuro */
+body.oscuro {
+    /*modo oscuro*/
+    --color-de-fondo:#23043A; 
+    --color-de-fondo-2:#3a0437; 
+    --color-letras:#dcfbc5; 
+    --tesoro:#5d8ece; 
+    --hover-fondo:#054a2c; 
+    --sangre:#60065c; 
+    --azul-boton-hover:#f7b8b0;
+    --madera:#087077;
+    --blanco:#484747;
+    --color-icono:#88ff80;
+    --color-icono-hover:#fff;
 }
 
 /* Menú pirata */
@@ -34,7 +53,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     padding: 10px 0;
     z-index: 1000;
     border-radius: 0 0 10px 10px;
@@ -108,7 +127,7 @@ body {
     position: absolute;
     top: -25px;
     font-weight: bold;
-    color: var(--negro);
+    color: var(--color-letras);
 }
 
 .color-box{
@@ -119,7 +138,7 @@ body {
 /* Textos */
 h2 {
     margin-bottom: 20px;
-    color: var(--negro);
+    color: var(--color-letras);
     text-shadow: var(--tesoro);
     font-weight: bolder;
 }
@@ -132,27 +151,28 @@ p {
 /* Icono copiar */
 .copy-icon {
     cursor: pointer;
+    stroke:var(--color-icono);
 }
+
 .copy-icon:hover {
-    stroke: var(--sangre);
+    stroke: var(--color-icono-hover);
 }
 
 #color-code {
     font-weight: bold;
-    color: var(--negro);
+    color: var(--color-letras);
 }
 
 /* Botón estilo tesoro */
-button {
+#color-btn, #copy-palette-btn {
     padding:10px 20px;
     margin-bottom: 30px;
     font-size: 16px;
-    color:var(--blanco);
+    color:var(--negro);
     background-color:var(--tesoro);
     border-radius: 6px;
     cursor: pointer;
     border:none;
-    box-shadow: 3px 3px 0px var(--negro);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -160,11 +180,10 @@ button {
     margin-left:10px;
 }
 
-button:hover {
+#color-btn:hover, #copy-palette-btn:hover {
     background-color:var(--madera);
     transform: scale(1.05);
 }
-
 
 /* Estilos generales para el toast */
 .toast {
@@ -196,12 +215,6 @@ button:hover {
     transform: translateY(-10px) scale(0.95);
 }
 
-/* Ícono dentro del toast */
-.toast svg {
-    stroke: #fff;
-    flex-shrink: 1;
-}
-
 /* Media query para pantallas menores a 750px */
 @media (max-width: 750px) {
 .menu-toggle {
@@ -213,7 +226,7 @@ button:hover {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: var(--pergamino);
+    background-color: var(--color-de-fondo);
     position: absolute;
     top: 50px;
     left: 0;
@@ -232,7 +245,7 @@ button:hover {
 .menu-mapa {
     border: none;
     box-shadow: none;
-    background-color: rgba(253, 246, 227, 0.8); /* pergamino translúcido */
+    background-color:var(--color-de-fondo-2); /* pergamino translúcido */
     border-radius: 12px;
     padding: 40px 20px;
     margin: 40px auto;
@@ -251,13 +264,13 @@ button:hover {
     gap: 10px;
 }
 
-#copy-palette-btn,
-button {
+/* Botón estilo tesoro */
+#color-btn, #copy-palette-btn {
     padding: 10px 20px;
     margin: 30px auto;       /* centrado horizontal */
     display: block;          /* necesario para que auto funcione */
     font-size: 12px;
-    color: var(--blanco);
+    color: var(--negro);
     background-color: var(--tesoro);
     border-radius: 6px;
     cursor: pointer;
@@ -267,7 +280,6 @@ button {
     width: 80%;              /* ancho relativo al contenedor */
     text-align: center;      /* centra el texto dentro del botón */
 }
-
 
 #copy-palette-btn{
     margin-bottom:30px;
